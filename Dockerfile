@@ -18,10 +18,12 @@ COPY kong /kong
 # Run our own tests
 # Re-run our predecessor tests
 ENV DEBUG=0
-RUN /test/*/test.sh && \
+RUN /test/kong-openssl/test.sh && \
+    /test/kong-runtime/test.sh && \
     /tmp/build.sh && \
     /tmp/test.sh && \
-    /test/*/test.sh
+    /test/kong-openssl/test.sh && \
+    /test/kong-runtime/test.sh
 
 # Test scripts left where downstream images can run them
 COPY test.sh /test/kong-development/test.sh
