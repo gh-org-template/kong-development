@@ -14,8 +14,13 @@ else
 endif
 
 clean:
-	rm -rf package
-	docker rmi $(DOCKER_NAME)
+	-rm -rf package
+	-docker rmi $(DOCKER_NAME)
+
+clean/submodules:
+	-git submodule foreach --recursive git reset --hard
+	-git submodule update --init --recursive
+	-git submodule status
 
 docker:
 	docker buildx build \
