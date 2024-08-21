@@ -44,6 +44,7 @@ jobs:
             updatecli diff --config "$file"
             updatecli apply --config "$file"
           done
+          rm -rf updatecli*.tar.gz
 
       - name: Create Pull Request
         id: cpr
