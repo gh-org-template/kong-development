@@ -3,7 +3,7 @@ ARG ARCHITECTURE=x86_64
 ARG DOCKER_REGISTRY=ghcr.io
 ARG DOCKER_IMAGE_NAME
 ARG DOCKER_ARCHITECTURE
-ARG VERSION=1.5.11
+ARG VERSION=1.5.12
 
 # List out all image permutations to trick dependabot
 FROM --platform=linux/${DOCKER_ARCHITECTURE} ghcr.io/gh-org-template/kong-runtime:${VERSION}-${OSTYPE} AS build
