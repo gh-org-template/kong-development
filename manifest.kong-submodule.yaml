@@ -1,0 +1,18 @@
+sources:
+  kong-sha:
+    name: Get current kong-sha release
+    kind: file
+    spec:
+      file: .env
+      matchpattern: KONG_SHA=.*
+    transformers:
+      - trimprefix: "KONG_SHA="
+
+targets:
+  kong-sha:
+    name: "Update kong submodule"
+    sourceid: kong-sha
+    kind: shell
+    spec:
+      command: |
+        cd kong && git fetch --all && git checkout {{ source "kong-sha" }} && exit 0
