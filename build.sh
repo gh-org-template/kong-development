@@ -103,6 +103,11 @@ function main() {
 
   cp /kong/COPYRIGHT /tmp/build/usr/local/kong/
   cp /kong/bin/kong /tmp/build/usr/local/bin/kong
+  cp /kong/bin/kong-health /tmp/build/usr/local/bin/kong
+  ln -s /tmp/build/usr/local/openresty/bin/resty /tmp/build/usr/local/bin/resty
+  ln -s /tmp/build/usr/local/openresty/nginx/sbin/nginx /tmp/build/usr/local/bin/nginx
+  ln -s /tmp/build/usr/local/openresty/luajit/bin/luajit /tmp/build/usr/local/bin/lua
+  ln -s /tmp/build/usr/local/openresty/luajit/bin/luajit /tmp/build/usr/local/bin/luajit
   sed -i 's/resty/\/usr\/local\/openresty\/bin\/resty/' /tmp/build/usr/local/bin/kong
   sed -i 's/\/tmp\/build//' `grep -l -I -r '\/tmp\/build' /tmp/build/` || true
 
